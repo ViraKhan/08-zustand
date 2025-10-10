@@ -4,6 +4,12 @@ import "./globals.css";
 import Header from "../components/Header/Header";
 import TanStackProvider from "../components/TanStackProvider/TanStackProvider";
 import Footer from "../components/Footer/Footer";
+import { Metadata }  from "next";
+
+export const metadata: Metadata = {
+  title: 'Edit Profile',
+  description: 'Edit your user details and settings',
+};
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
