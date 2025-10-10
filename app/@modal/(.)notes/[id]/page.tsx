@@ -5,7 +5,12 @@ import {
   QueryClient,
 } from "@tanstack/react-query";
 import NotePreviewClient from "./NotePreview.client";
+import { Metadata }  from "next";
 
+export const metadata: Metadata = {
+  title: 'NoteHub - Note Preview',
+  description: 'Preview your notes in detail',
+};
 type Props = {
   params: Promise<{ id: string }>;
 };

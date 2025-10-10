@@ -22,7 +22,7 @@ export default function NoteDetailsClient({ id }: { id: string }) {
 
   return (
     <div className={css.container}>
-       <Link href="/notes//filter/All" className={css.backBtn}>
+       <Link href="/notes/filter/All" className={css.backBtn}>
         ← Back
       </Link>
       <div className={css.item}>

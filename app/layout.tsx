@@ -1,25 +1,31 @@
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header/Header";
 import TanStackProvider from "../components/TanStackProvider/TanStackProvider";
 import Footer from "../components/Footer/Footer";
 import { Metadata }  from "next";
 
+// Глобальні метадані
 export const metadata: Metadata = {
-  title: 'Edit Profile',
-  description: 'Edit your user details and settings',
+  title: 'NotHub - Edit Notes',
+  description: 'Space for your notes',
+  openGraph: {
+    title: 'NoteHub - Edit Notes',
+    description: 'Space for your notes',
+    url: 'https://08-zustand-phi-three.vercel.app/',
+   images: ['https://ac.goit.global/fullstack/react/notehub-og-meta.jpg']
+
+  },
 };
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const roboto = Roboto({
+  subsets: ['latin'], 
+  weight: ['400', '700'],
+  variable: '--font-roboto', 
+  display: 'swap', 
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 
 export default function RootLayout({
@@ -31,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={roboto.variable}>
         <TanStackProvider>
           <Header />
           <main>
@@ -44,3 +50,4 @@ export default function RootLayout({
     </html>
   );
 }
+
