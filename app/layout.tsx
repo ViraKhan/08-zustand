@@ -6,6 +6,13 @@ import TanStackProvider from "../components/TanStackProvider/TanStackProvider";
 import Footer from "../components/Footer/Footer";
 import { Metadata }  from "next";
 
+const roboto = Roboto({
+  subsets: ['latin'], 
+  weight: ['400', '700'],
+  variable: '--font-roboto', 
+  display: 'swap', 
+});
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"; 
 // Глобальні метадані
 export const metadata: Metadata = {
   title: 'NotHub - Edit Notes',
@@ -13,18 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NoteHub - Edit Notes',
     description: 'Space for your notes',
-    url: 'https://08-zustand-phi-three.vercel.app/',
+    url: siteUrl,
    images: ['https://ac.goit.global/fullstack/react/notehub-og-meta.jpg']
 
   },
 };
 
-const roboto = Roboto({
-  subsets: ['latin'], 
-  weight: ['400', '700'],
-  variable: '--font-roboto', 
-  display: 'swap', 
-});
+
 
 
 

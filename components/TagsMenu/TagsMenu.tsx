@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { CATEGORIES } from "@/types/note";
+import { NoteTagAll } from "@/types/note";
 import css from "./TagsMenu.module.css";
 
 export default function TagsMenu() {
@@ -42,7 +42,7 @@ export default function TagsMenu() {
 
       {open && (
         <ul ref={listRef} className={css.menuList} role="menu">
-          {CATEGORIES.map((tag) => (
+          {NoteTagAll.map((tag) => (
             <li key={tag} className={css.menuItem} role="none">
               <Link
                 href={`/notes/filter/${tag}`}

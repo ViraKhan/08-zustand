@@ -1,11 +1,11 @@
-import css from "./layoutNotes.module.css";
+import css from "./LayoutNotes.module.css";
 
-interface LayoutNotesProps {
+interface Props {
   children: React.ReactNode;
   sidebar: React.ReactNode;
 }
 
-const LayoutNotes = ({ children, sidebar }: LayoutNotesProps) => {
+const NotesLayout = ({ sidebar, children }: Props) => {
   return (
     <section className={css.container}>
       <aside className={css.sidebar}>{sidebar}</aside>
@@ -14,4 +14,4 @@ const LayoutNotes = ({ children, sidebar }: LayoutNotesProps) => {
   );
 };
 
-export default LayoutNotes;
+export default NotesLayout;
