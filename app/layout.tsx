@@ -21,7 +21,14 @@ export const metadata: Metadata = {
     title: 'NoteHub - Edit Notes',
     description: 'Space for your notes',
     url: siteUrl,
-   images: ['https://ac.goit.global/fullstack/react/notehub-og-meta.jpg']
+   images: [
+    {
+    url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+    width: 1200,      
+    height: 630,     
+    alt: 'NoteHub', 
+  },
+],
 
   },
 };
