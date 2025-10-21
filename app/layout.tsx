@@ -5,6 +5,7 @@ import Header from "../components/Header/Header";
 import TanStackProvider from "../components/TanStackProvider/TanStackProvider";
 import Footer from "../components/Footer/Footer";
 import { Metadata }  from "next";
+import css from "./page.module.css";
 
 const roboto = Roboto({
   subsets: ['latin'], 
@@ -49,7 +50,7 @@ export default function RootLayout({
       <body className={roboto.variable}>
         <TanStackProvider>
           <Header />
-          <main style={{ flex: 1 }}> 
+          <main className={css.main}> 
             {children} 
           </main>
             {modal}
