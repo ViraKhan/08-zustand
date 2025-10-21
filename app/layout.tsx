@@ -49,10 +49,11 @@ export default function RootLayout({
       <body className={roboto.variable}>
         <TanStackProvider>
           <Header />
-          <main>
-            {children}
-            {modal}
+          <main style={{ flex: 1 }}> 
+            {children} 
           </main>
+            {modal}
+         
           <Footer />
         </TanStackProvider>
       </body>
