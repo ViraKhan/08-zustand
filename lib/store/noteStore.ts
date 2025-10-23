@@ -21,7 +21,6 @@ type NoteStore = {
     setDraft: (draft: DraftNote) => void;
     clearDraft: () => void;
 };
-
 export const useNoteStore = create<NoteStore>()(
     persist(
         (set) => ({
