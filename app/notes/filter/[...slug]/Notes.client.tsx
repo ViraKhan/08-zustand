@@ -46,7 +46,7 @@ const NotesClient = ({ tag }: { tag?: NoteTag }) => {
      onPageChange={setCurrentPage}
   />
 )}
-        <Link className={css.link} href="/notes/action/create">
+        <Link className={css.button} href="/notes/action/create">
           Create note +
         </Link>
       </div>

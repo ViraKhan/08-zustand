@@ -22,7 +22,7 @@ const validateDraft = (draft: DraftNote): FormErrors => {
     const errors: FormErrors = {};
 
     // Валідація 'title'
-    const title = draft.title.trim();
+    const title = draft.title?.trim() ?? "";
     if (!title) {
         errors.title = "Title is required";
     } else if (title.length < 3) {
@@ -30,9 +30,8 @@ const validateDraft = (draft: DraftNote): FormErrors => {
     } else if (title.length > 50) {
         errors.title = "Title must be at most 50 characters";
     }
-
     // Валідація 'content'
-    const content = draft.content.trim();
+    const content = draft.content?.trim() ?? "";
     if (!content) {
         errors.content = "Content is required"; // Додаємо перевірку на обов'язковість
     } else if (draft.content.length > 500) {
@@ -57,6 +56,7 @@ const NoteForm = ({ onCancel }: NoteFormProps) => {
     const [errors, setErrors] = useState<FormErrors>({});
 
     useEffect(() => {
+        if (!draft) return;
         setErrors(validateDraft(draft));
     }, [draft]);
 
@@ -96,7 +96,7 @@ const NoteForm = ({ onCancel }: NoteFormProps) => {
                     type="text"
                     className={css.input}
                     value={draft.title}
-                    onChange={(e) => setDraft({ title: e.target.value })}
+                    onChange={(e) => setDraft({  ...draft, title: e.target.value })}
                 />
                 {errors.title && (
                     <span className={css.error}>{errors.title}</span>
@@ -111,7 +111,7 @@ const NoteForm = ({ onCancel }: NoteFormProps) => {
                     rows={8}
                     className={css.textarea}
                     value={draft.content}
-                    onChange={(e) => setDraft({ content: e.target.value })}
+                    onChange={(e) => setDraft({  ...draft, content: e.target.value })}
                 />
                 {errors.content && (
                     <span className={css.error}>{errors.content}</span>
@@ -126,7 +126,7 @@ const NoteForm = ({ onCancel }: NoteFormProps) => {
                     className={css.select}
                     value={draft.tag}
                     onChange={(e) =>
-                        setDraft({ tag: e.target.value as NoteTag })
+                        setDraft({ ...draft, tag: e.target.value as NoteTag })
                     }
                 >
                     {TAGS.map((t) => (
